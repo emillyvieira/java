@@ -20,12 +20,12 @@ public class ex02 {
         float idade, anos, meses, dias;
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Digite sua idade em...");
+        System.out.print("Digite sua idade em...");
         System.out.println("ANO(S): ");
         anos = sc.nextInt();
-        System.out.println("MES(ES): ");
+        System.out.print("MES(ES): ");
         meses = sc.nextInt();
-        System.out.println("DIA(S): ");
+        System.out.print("DIA(S): ");
         dias = sc.nextInt();
         
         idade = (anos * 365) + (meses * 30) + (dias);
