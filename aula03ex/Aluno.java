@@ -10,8 +10,6 @@ package aula03ex;
  */
 public class Aluno {
 
-    public Aluno() {
-    }
     String matricula;
     String nome;
     float p1, p2, t1;

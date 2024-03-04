@@ -26,32 +26,26 @@ public class ex03 {
         jC = random.nextInt(3);
 
         if (jC == 0) {
-            if (jP == 0) {
-                JOptionPane.showMessageDialog(null, "Empate.");
-            } else if (jP == 1) {
-                JOptionPane.showMessageDialog(null, "Jogador ganhou.");
-            } else {
-                JOptionPane.showMessageDialog(null, "Jogador perdeu.");
+            switch (jP) {
+                case 0 -> JOptionPane.showMessageDialog(null, "Empate.");
+                case 1 -> JOptionPane.showMessageDialog(null, "Jogador ganhou.");
+                default -> JOptionPane.showMessageDialog(null, "Jogador perdeu.");
             }
         }
 
         if (jC == 1) {
-            if (jP == 1) {
-                JOptionPane.showMessageDialog(null, "Empate.");
-            } else if (jP == 2) {
-                JOptionPane.showMessageDialog(null, "Jogador ganhou.");
-            } else {
-                JOptionPane.showMessageDialog(null, "Jogador perdeu.");
+            switch (jP) {
+                case 1 -> JOptionPane.showMessageDialog(null, "Empate.");
+                case 2 -> JOptionPane.showMessageDialog(null, "Jogador ganhou.");
+                default -> JOptionPane.showMessageDialog(null, "Jogador perdeu.");
             }
         }
 
         if (jC == 2) {
-            if (jP == 2) {
-                JOptionPane.showMessageDialog(null, "Empate.");
-            } else if (jP == 0) {
-                JOptionPane.showMessageDialog(null, "Jogador ganhou.");
-            } else {
-                JOptionPane.showMessageDialog(null, "Jogador perdeu.");
+            switch (jP) {
+                case 2 -> JOptionPane.showMessageDialog(null, "Empate.");
+                case 0 -> JOptionPane.showMessageDialog(null, "Jogador ganhou.");
+                default -> JOptionPane.showMessageDialog(null, "Jogador perdeu.");
             }
         }
 
