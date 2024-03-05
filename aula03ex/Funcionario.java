@@ -76,6 +76,10 @@ public class Funcionario {
         return salario * 12;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Funcionario{" +
