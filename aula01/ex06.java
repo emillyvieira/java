@@ -13,46 +13,41 @@ import java.util.Scanner;
 public class ex06 {
 
     /**
-     * @param args the command line arguments
+     * @param a
+     * @param b
+     * @return
      */
     public static float adicao(float a, float b) {
-        float n;
-        n = a + b;
-        return n;
+        return a + b;
     }
+
     public static float subtracao(float a, float b) {
-        float n;
-        n = a - b;
-        return n;
+        return a - b;
     }
+
     public static float multiplicacao(float a, float b) {
-        float n;
-        n = a * b;
-        return n;
+        return a * b;
     }
+
     public static float divisao(float a, float b) {
-        float n;
-        n = a / b;
-        return n;
+        return a / b;
     }
-    
 
     public static void main(String[] args) {
         // TODO code application logic here
-        float adicao, subtracao, multiplicacao, divisao, a, b;
+        float a, b;
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.print("Digite o primeiro numero: ");
         a = sc.nextFloat();
         System.out.print("Digite o segundo numero: ");
         b = sc.nextFloat();
-        
-        System.out.println("Adicao de " + a + " e " + b + " = " + adicao(a, b));
-        System.out.println("Subtracao de " + a + " e " + b + " = " + subtracao(a, b));
-        System.out.println("Multiplicacao de " + a + " e " + b + " = " + multiplicacao(a, b));
-        System.out.println("Divisao de " + a + " e " + b + " = " + divisao(a, b));
 
-        
+        System.out.println(a + " + " + b + " = " + adicao(a, b));
+        System.out.println(a + " - " + b + " = " + subtracao(a, b));
+        System.out.println(a + " * " + b + " = " + multiplicacao(a, b));
+        System.out.println(a + " / " + b + " = " + divisao(a, b));
+
     }
 
 }
