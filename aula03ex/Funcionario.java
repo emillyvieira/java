@@ -76,14 +76,4 @@ public class Funcionario {
         return salario * 12;
     }
 
-    @Override
-    public String toString() {
-        return "Funcionario{" +
-                "nome='" + nome + '\'' +
-                ", rg='" + rg + '\'' +
-                ", departamento='" + departamento + '\'' +
-                ", salario=" + salario +
-                ", dataEntrada='" + dataEntrada + '\'' +
-                '}';
-    }
 }

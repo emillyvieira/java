@@ -13,13 +13,10 @@ import javax.swing.JOptionPane;
 public class ex02 {
 
     public static void main(String[] args) {
-        // Quantidade de funcionários
         int n = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a quantidade de funcionários para cadastrar: "));
 
-        // Cria um array de objetos Funcionario
         Funcionario[] f = new Funcionario[n];
 
-        // Cadastro dos funcionários
         for (int i = 0; i < f.length; i++) {
             f[i] = new Funcionario();
 
@@ -30,7 +27,6 @@ public class ex02 {
             f[i].setDataEntrada(JOptionPane.showInputDialog(null, "Digite a data de entrada na empresa (DD/MM/AAAA): "));
         }
 
-        // Menu de opções para cada funcionário
         for (int i = 0; i < f.length; i++) {
             String[] opcoes = {"Aumento", "Ganho atual", "Finalizar"};
 
@@ -46,20 +42,23 @@ public class ex02 {
                     opcoes[0]);
 
             switch (opcao) {
-                case 0: // Aumento
+                case 0 -> {
+                    // Aumento
                     double aumento = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor do aumento: "));
                     f[i].recebeAumento(aumento);
                     JOptionPane.showMessageDialog(null, "Salário atualizado: R$" + f[i].getSalario());
-                    break;
-                case 1: // Ganho atual
+                }
+                case 1 -> {
+                    // Ganho atual
                     double ganhoAtual = f[i].calculaGanhoAnual();
                     JOptionPane.showMessageDialog(null, "Ganho anual: R$" + ganhoAtual);
-                    break;
-                case 2: // Finalizar
+                }
+                case 2 -> {
+                    // Finalizar
                     JOptionPane.showMessageDialog(null, "Obrigado por utilizar o sistema!");
                     System.exit(0);
-                    break;
-                default: // Opção inválida
+                }
+                default -> // Opção inválida
                     JOptionPane.showMessageDialog(null, "Opção inválida!");
             }
         }

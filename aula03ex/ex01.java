@@ -23,9 +23,7 @@ public class ex01 {
 
         for (int i = 0; i < a.length; i++) {
             a[i] = new Aluno();
-        }
 
-        for (int i = 0; i < a.length; i++) {
             a[i].setMatricula(JOptionPane.showInputDialog(null, (i + 1) + ") Digite a matricula do aluno: "));
             a[i].setNome(JOptionPane.showInputDialog(null, (i + 1) + ") Digite o nome do aluno: "));
             a[i].setP1(Float.parseFloat(JOptionPane.showInputDialog(null, (i + 1) + ") Digite a nota da P1: ")));
