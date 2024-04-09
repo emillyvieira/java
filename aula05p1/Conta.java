@@ -8,6 +8,26 @@ package aula05p1;
  *
  * @author cg3028569
  */
-public class Conta {
+public abstract class Conta {
+    protected double saldo;
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public Conta(double saldo) {
+        this.saldo = saldo;
+    }
     
+    public void deposita(double valor){
+        this.saldo += valor;
+        
+        System.out.println("O novo saldo da conta é de R$"+ saldo);
+    }
+    
+    public abstract void taxa();
 }
