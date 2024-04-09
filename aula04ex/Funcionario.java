@@ -20,9 +20,6 @@ public class Funcionario {
         return salario* 12;
     }
     
-    public exibeDados(){
-        
-    }
 
     public String getNome() {
         return nome;
