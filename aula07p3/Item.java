@@ -4,7 +4,6 @@
  */
 package aula07p3;
 
-import aula07p2.*;
 import java.io.Serializable;
 
 /**

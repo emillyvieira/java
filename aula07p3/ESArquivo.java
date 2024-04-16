@@ -4,12 +4,10 @@
  */
 package aula07p3;
 
-import aula07p2.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  *
@@ -17,63 +15,62 @@ import java.io.PrintWriter;
  */
 public class ESArquivo {
 
-    public static void escreverPrintWriter(String texto, String nomeArquivo) {
-
-        File f;
-        PrintWriter pw = null;
+    public static String lerFileReader(String nomeArquivo) {
+        int c = 0;
+        String r = "";
+        FileReader fr = null;
         try {
-            f = new File(nomeArquivo + ".txt");
-            pw = new PrintWriter(f);
-            pw.write(texto);
-        } catch (IOException e) {
-            System.out.println("Erro durante a escrita no arquivo! \n\n Detalhes do erro: " + e.getMessage());
-        } finally {
-            if (pw != null) {
-                pw.close();
-            }
+            fr = new FileReader(nomeArquivo + ".txt");
+        } catch (FileNotFoundException e) {
+            System.out.println("Arquivo não encontrado! \n\n Detalhes do erro: " + e.getMessage());
         }
+        if (fr != null) {
+            do {
+                r += (char) c;
+                try {
+                    c = fr.read();
+                } catch (IOException e) {
+                    System.out.println("Erro durante a leitura do arquivo! \n\n Detalhes do erro: " + e.getMessage());
+                }
+            } while (c != -1);
+            try {
+                fr.close();
+            } catch (IOException e) {
+                System.out.println("Erro durante o fechamento do arquivo! \n\n Detalhes do erro: " + e.getMessage());
+            }
+
+        }
+        return r;
     }
 
-    public static void escreverFileWriter(String texto, String nomeArquivo, boolean a) {
-        FileWriter fw = null;
+    public static String lerBufferedReader(String nomeArquivo) {
+        String r = "";
+        String linha = "";
+        FileReader fr;
+        BufferedReader br = null;
         try {
-            fw = new FileWriter(nomeArquivo + ".txt", a);
-            fw.write(texto);
-        } catch (IOException e) {
-            System.out.println("Erro durante a escrita no arquivo! \n\n Detalhes do erro: " + e.getMessage());
-        }
-        if (fw != null) {
-            try {
-                fw.close();
-            } catch (IOException e) {
-                System.out.println("Erro durante a escrita no arquivo! \n\n Detalhes do erro: " + e.getMessage());
-            }
-        }
-    }
+            fr = new FileReader(nomeArquivo + ".txt");
+            br = new BufferedReader(fr);
 
-    public static void escreverBufferedWriter(String texto, String nomeArquivo, boolean a) {
-        FileWriter fw = null;
-        BufferedWriter bw = null;
-        try {
-            fw = new FileWriter(nomeArquivo + ".txt", a);
-            bw = new BufferedWriter(fw);
-        } catch (IOException e) {
-            System.out.println("Erro durante a escrita no arquivo! \n\n Detalhes do erro: " + e.getMessage());
+        } catch (FileNotFoundException e) {
+            System.out.println("Arquivo não encontrado! \n\n Detalhes do erro: " + e.getMessage());
         }
-        if (bw != null) {
+        if (br != null) {
+            do {
+                r += linha + " \n";
+                try {
+                    linha = br.readLine();
+                } catch (IOException e) {
+                    System.out.println("Erro durante a leitura do arquivo! \n\n Detalhes do erro: " + e.getMessage());
+                }
+            } while (linha != null);
             try {
-                bw.write(texto);
-                bw.newLine();
+                br.close();
             } catch (IOException e) {
-                System.out.println("Erro durante a escrita no arquivo! \n\n Detalhes do erro: " + e.getMessage());
+                System.out.println("Erro durante o fechamento do arquivo! \n\n Detalhes do erro: " + e.getMessage());
             }
-            try {
-                bw.flush();
-                bw.close();
-            } catch (IOException e) {
-                System.out.println("Erro durante a escrita no arquivo! \n\n Detalhes do erro: " + e.getMessage());
-            }
-        }
-    }
 
+        }
+        return r;
+    }
 }
