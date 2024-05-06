@@ -4,10 +4,10 @@
  */
 package aula07ex;
 
-import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 /**
  *
@@ -16,19 +16,30 @@ import javax.swing.JOptionPane;
 public class TabuadaWriter {
 
     public static void main(String[] args) {
-        String input = JOptionPane.showInputDialog("Digite um número para gerar a tabuada:");
-        int numero = Integer.parseInt(input);
+        Scanner scanner = new Scanner(System.in);
 
-        String nomeArquivo = "tabuada_" + numero + ".txt";
+        System.out.print("Digite o número para ler a tabuada: ");
+        int num = scanner.nextInt();
 
-        try (PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo))) {
-            for (int i = 1; i <= 10; i++) {
-                int resultado = numero * i;
-                writer.println(numero + " x " + i + " = " + resultado);
+        String nomeArquivo = "tabuada_" + num + ".txt";
+
+        try {
+            FileReader arquivoLeitura = new FileReader(nomeArquivo);
+            BufferedReader leitor = new BufferedReader(arquivoLeitura);
+
+            String linha;
+            System.out.println("Conteúdo da tabuada do " + num + ":");
+            while ((linha = leitor.readLine()) != null) {
+                System.out.println(linha);
             }
-            JOptionPane.showMessageDialog(null, "Tabuada gerada e armazenada no arquivo " + nomeArquivo);
+
+            leitor.close();
+            arquivoLeitura.close();
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao escrever no arquivo: " + e.getMessage());
+            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+            System.out.println("O arquivo de tabuada não existe.");
         }
+
+        scanner.close();
     }
 }
