@@ -10,8 +10,18 @@ package exe1poo;
  */
 public class Produto {
     String nome;
-    float PrecoCusto;
-    float PrecoVenda;
+    float precoCusto;
+    float precoVenda;
+    
+    Produto() {
+        System.out.println("Construindo um produto...");
+    }
+    
+    Produto(String nome, float precoCusto) {
+        this.nome = nome;
+        this.precoCusto = precoCusto;
+        this.precoVenda = CalculoPrecoVenda(precoCusto, 1.3f);
+    }
     
     float CalculoPrecoVenda(float valor, float lucro) {
         return valor*lucro;
